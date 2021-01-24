@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DatePickerTest extends BaseTest {
+    int zmienna;
 
     @Test
     public void selectDateTest() {
