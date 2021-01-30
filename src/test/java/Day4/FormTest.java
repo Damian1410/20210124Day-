@@ -1,3 +1,5 @@
+package Day4;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -30,7 +32,7 @@ public class FormTest extends BaseTest {
         WebElement years = getDriver().findElement(By.id("inputAge3"));
         years.sendKeys("29");
 
-        List<WebElement> yearOfExperience = getDriver().findElements(By.cssSelector("[name='gridRadiosExperience']"));
+         List<WebElement> yearOfExperience = getDriver().findElements(By.cssSelector("[name='gridRadiosExperience']"));
         yearOfExperience.get(2).click();
 
         WebElement profession = getDriver().findElement(By.id("gridCheckAutomationTester"));

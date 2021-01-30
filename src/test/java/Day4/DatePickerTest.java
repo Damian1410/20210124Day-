@@ -1,4 +1,5 @@
-import com.google.common.collect.Lists;
+package Day4;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;

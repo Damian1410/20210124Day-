@@ -1,3 +1,5 @@
+package Day4;
+
 import org.testng.annotations.*;
 
 public class AnnotactionTest { //suite testów

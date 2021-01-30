@@ -1,3 +1,5 @@
+package Day4;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -22,7 +24,7 @@ public class Mountain {
 
     @Override
     public String toString() {
-        return "Mountain{" +
+        return "Day4.Mountain{" +
                 "peak='" + peak + '\'' +
                 ", height='" + height + '\'' +
                 '}';
