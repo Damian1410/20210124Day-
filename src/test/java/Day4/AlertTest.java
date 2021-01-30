@@ -14,7 +14,7 @@ public class AlertTest extends BaseTest{
 
     @Test
     public void simpleAlertTest(){
-        getDriver().findElement(By.id("simple-alert")).click();
+        getDriver().findElement(By.id("delayed-alert")).click();
         getDriver().switchTo().alert().accept();
         Assert.assertEquals(getDriver().findElement(By.id("simple-alert-label")).getText(),
                 "OK button pressed" );

@@ -1,19 +1,15 @@
 package Day5;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.sql.Driver;
 import java.util.List;
 import java.util.Random;
 
-public class FormPO extends BasePO {
+public class FormFluentPO extends BasePO {
     @FindBy(id = "inputFirstName3")
     private WebElement inputFirstName;
 
@@ -48,45 +44,54 @@ public class FormPO extends BasePO {
     private WebElement clickSaveButton;
 
     @FindBy(id = "validator-message")
-    private WebElement validatorMessage;
+    private WebElement validation;
 
+    //wybierz losowy kontynent
+    //wybierz losowy years of expirience
+    //wybierz losową ilość Commands
 
-
-    public void fillName(String name, String lastName) {
+    public FormFluentPO fillName(String name, String lastName) {
         inputFirstName.sendKeys(name);
         inputLastName.sendKeys(lastName);
+        return this;
     }
 
-    public void fillEmail(String email) {
+    public FormFluentPO fillEmail(String email) {
         inputEmail.sendKeys(email);
+        return this;
     }
 
-    public void chooseSex() {
+    public FormFluentPO chooseSex() {
         inputSex.click();
+        return this;
     }
 
-    public void fillAge(String age) {
+    public FormFluentPO fillAge(String age) {
         inputAge.sendKeys(age);
+        return this;
     }
 
-    public void fillYearsOfExperience() {
+    public FormFluentPO fillYearsOfExperience() {
 
         getRandomElement(inputYearsOfExperience).click();
+        return this;
     }
 
-    public void fillProfession() {
+    public FormFluentPO fillProfession() {
         inputProfession.click();
+        return this;
     }
 
-    public void fillContinent() {
+    public FormFluentPO fillContinent() {
         Select continents = new Select(inputContinent);
         List<WebElement> listcontinent = continents.getOptions();
         listcontinent.remove(0);
         WebElement randomContinent = getRandomElement(listcontinent);
         continents.selectByVisibleText(randomContinent.getText());
+        return this;
     }
 
-    public void fillCommand() {
+    public FormFluentPO fillCommand() {
         Select commands = new Select(inputCommands);
         List<WebElement> listCommant = commands.getOptions();
         int elementNum = getRandomNumber(listCommant.size());
@@ -94,27 +99,35 @@ public class FormPO extends BasePO {
         for (int i = 0; i < elementNum; i++) {
             commands.selectByIndex(i);
         }
+        return this;
     }
 
-    public void chooseFile(String adress){
+    public FormFluentPO chooseFile(String adress){
         File file = new File(adress);
         chooseFile.sendKeys(file.getAbsolutePath());
+        return this;
     }
 
-    public void clickSaveButton(){
+    public FormFluentPO clickSaveButton(){
         clickSaveButton.click();
+        return this;
     }
 
-    public  String getValidationMessage(){
-       return validatorMessage.getText();
+    public String validation(){
+       return validation.getText();
     }
+
+
+
+
+
 
 /*    public FormPO(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.get("https://seleniumui.moderntester.pl/form.php");
     }*/
 
-   public FormPO(WebDriver driver){
+   public FormFluentPO(WebDriver driver){
        super(driver);
        ownUrl = "https://seleniumui.moderntester.pl/form.php";
    }

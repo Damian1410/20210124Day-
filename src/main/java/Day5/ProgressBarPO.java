@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 public class ProgressBarPO extends BasePO {
-    protected WebDriverWait wait;
 
     @FindBy(css = ".ui-progressbar-complete")
     private WebElement completeProgressBar;
@@ -22,6 +21,6 @@ public class ProgressBarPO extends BasePO {
 
     public ProgressBarPO(WebDriver driver) {
         super(driver);
-        this.wait = wait;
+        ownUrl = "https://seleniumui.moderntester.pl/progressbar.php";
     }
 }
